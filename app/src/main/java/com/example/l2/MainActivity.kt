@@ -23,18 +23,18 @@ class MainActivity : AppCompatActivity() {
 
             if (d > 0.0){
                 if (a == 0.0) {
-                    val x = -c / b
+                    val x = String.format("%.2f", (-c / b)).trimEnd('0').trimEnd('.')
                     output.text = "Линейное уравнение: x = $x"
                 }
                 else {
-                    val x1 = String.format("%.2f", ((-b + sqrt(d)) / (2 * a)))
-                    val x2 = String.format("%.2f", ((-b - sqrt(d)) / (2 * a)))
+                    val x1 = String.format("%.2f", ((-b + sqrt(d)) / (2 * a))).trimEnd('0').trimEnd('.')
+                    val x2 = String.format("%.2f", ((-b - sqrt(d)) / (2 * a))).trimEnd('0').trimEnd('.')
                     output.text = "x1 = $x1\nx2 = $x2"
                 }
             }
             else if (d == 0.0) {
-                if (a == 0.0 && b != 0.0){
-                    val x = String.format("%.2f",(-b / (2 * a)))
+                if (a != 0.0){
+                    val x = String.format("%.2f",(-b / (2 * a))).trimEnd('0').trimEnd('.')
                     output.text = "x1 = x2 = $x"
                 }
                 else if (a == 0.0 && b == 0.0 && c == 0.0) {
